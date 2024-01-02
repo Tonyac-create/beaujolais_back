@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -10,7 +11,8 @@ import { UserModule } from './user/user.module';
       isGlobal:true
     }),
     MongooseModule.forRoot(process.env.MONGO_DNS),
-    UserModule
+    UserModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
