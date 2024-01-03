@@ -46,6 +46,14 @@ export class UsersService {
     }
   }
 
+  async updateToken(id: string, refreshToken: string): Promise<UserDocument> {
+    try {
+      return await this.userModel.findByIdAndUpdate(id, { refreshToken }, {new: true})
+    } catch (error) {
+      
+    }
+  }
+
   async remove(id: string): Promise<any> {
     try {
       return await this.userModel.findByIdAndDelete(id)
